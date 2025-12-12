@@ -1,0 +1,16 @@
+
+{
+  "homepage": "https://guptaajay2002.github.io/Social-Agent-UI",
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  },
+  "scripts": {
+  "dev": "vite",
+  "build": "vite build",
+  "preview": "vite preview",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d dist"
+}
+
+  
+}
