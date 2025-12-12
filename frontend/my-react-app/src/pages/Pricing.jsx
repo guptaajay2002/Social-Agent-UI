@@ -1,85 +1,169 @@
-// import FAQ from "./FAQ";
 
-// function Pricing() {
-//   const plans = [
-//     { name: 'Starter', price: '₹0', features: ['1 user', 'Basic templates', 'Community support'] },
-//     { name: 'Pro', price: '₹1,499/mo', features: ['3 users', 'AI captions', 'Scheduling', 'Email support'] },
-//     { name: 'Business', price: '₹4,999/mo', features: ['10 users', 'All features', 'Priority support'] },
-//   ]
+import { useEffect, useState } from "react";
+import SubscribeModal from "../pages/Subscribe"; // <-- ensure this file exists
 
-//   return (
-//     <section className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-sky-50 flex flex-col items-center py-16">
-//       <h2 className="text-4xl font-bold text-gray-900 mt-16 mb-4">Simple, transparent pricing</h2>
-//       <p className="text-gray-600 text-2xl mb-12">Choose a plan that grows with you.</p>
-//       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-8 max-w-6xl w-full">
-//         {plans.map((t) => (
-//           <div key={t.name} className={`relative rounded-2xl border ${
-//           plans.highlighted
-//             ? "border-transparent bg-gradient-to-br from-indigo-500 to-blue-500 p-[2px] shadow-2xl"
-//             : "border-gray-200 shadow-md"
-//         } transform transition-all duration-300 hover:scale-120 hover:shadow-2xl`}>
-            
-//             <h3 className="text-2xl text-center font-bold mb-4 mt-5">{t.name}</h3>
-//             <div className="text-3xl font-bold mb-4 ml-5">{t.price}</div>
-//             <ul className="text-gray-600 space-y-2 mb-8 text-md  font-bold ml-7">
-//               {t.features.map((f) => <li key={f}>• {f}</li>)}
-//             </ul>
-//             <button className={`w-70 py-5 ml-7 mb-3 rounded-xl font-semibold transition-all duration-300 ${
-//               plans.highlighted
-//                 ? "bg-white text-indigo-600 hover:bg-gray-100"
-//                 : "bg-indigo-600 text-white hover:bg-indigo-700"
-//             }`}>
-//               Get started
-//             </button>
-//           </div>
-//         ))}
-//       </div>
-//     </section>
-//   );
-// }
-// export default Pricing;
-import { Link } from "react-router-dom";
-import FAQ from "./FAQ";
+export default function Pricing() {
+  const [billing, setBilling] = useState("monthly");
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState("");
 
-function Pricing() {
   const plans = [
-    { name: 'Starter', price: '₹0', features: ['1 user', 'Basic templates', 'Community support'] },
-    { name: 'Pro', price: '₹1,499/mo', features: ['3 users', 'AI captions', 'Scheduling', 'Email support'] },
-    { name: 'Business', price: '₹4,999/mo', features: ['10 users', 'All features', 'Priority support'] },
+    {
+      name: "Pro",
+      monthly: 1499,
+      yearly: Math.round(1499 * 12 * 0.8),
+      features: ["3 users", "AI captions", "Scheduling", "Email support"],
+      popular: true,
+    },
+    {
+      name: "Business",
+      monthly: 4999,
+      yearly: Math.round(4999 * 12 * 0.8),
+      features: ["10 users", "All features", "Priority support"],
+      popular: false,
+    },
   ];
 
+  // open modal for a plan
+  const handleGetStarted = (planName) => {
+    setSelectedPlan(planName);
+    setIsOpen(true);
+  };
+
+  // prevent background scroll when modal open
+  useEffect(() => {
+    if (isOpen) document.body.classList.add("overflow-hidden");
+    else document.body.classList.remove("overflow-hidden");
+
+    return () => document.body.classList.remove("overflow-hidden");
+  }, [isOpen]);
+
   return (
-    <section className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-sky-50 flex flex-col items-center py-16">
-      <h2 className="text-4xl font-bold text-gray-900 mt-16 mb-4">Simple, transparent pricing</h2>
-      <p className="text-gray-600 text-2xl mb-12">Choose a plan that grows with you.</p>
-      
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-8 max-w-6xl w-full">
-        {plans.map((t) => (
-          <div
-            key={t.name}
-            className="relative rounded-2xl border border-gray-200 shadow-md transform transition-all duration-300 hover:scale-120 hover:shadow-2xl"
+    <section id="pricing" className="bg-gradient-to-br from-indigo-50 via-white to-sky-50 py-16">
+      {/* Subscribe modal component */}
+      <SubscribeModal
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        plan={selectedPlan}
+      />
+
+      <div className="max-w-7xl mx-auto px-6 text-center">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
+          Simple, Transparent Pricing
+        </h2>
+        <p className="text-gray-700 text-lg mb-10">
+          Choose a plan that scales with your AI-powered marketing growth.
+        </p>
+
+        {/* Billing Toggle */}
+        <div className="flex items-center justify-center gap-4 mb-12">
+          <span className={`font-semibold ${billing === "monthly" ? "text-indigo-600" : "text-gray-500"}`}>
+            Monthly
+          </span>
+
+          <button
+            onClick={() => setBilling(billing === "monthly" ? "yearly" : "monthly")}
+            className="relative w-14 h-8 bg-indigo-600 rounded-full transition-all"
+            aria-label="Toggle billing"
           >
-            <h3 className="text-2xl text-center font-bold mb-4 mt-5">{t.name}</h3>
-            <div className="text-3xl font-bold mb-4 ml-5">{t.price}</div>
-            <ul className="text-gray-600 space-y-2 mb-8 text-md font-bold ml-7">
-              {t.features.map((f) => (
-                <li key={f}>• {f}</li>
-              ))}
-            </ul>
+            <span
+              className={`absolute top-1 left-1 w-6 h-6 bg-white rounded-full transition-transform ${billing === "yearly" ? "translate-x-6" : ""}`}
+            />
+          </button>
 
-            {/* Redirect to payment page with selected plan */}
-            <Link to={`/payment/${t.name.toLowerCase()}`}>
-              <button className="w-70 py-5 ml-7 mb-3 rounded-xl font-semibold transition-all duration-300 bg-indigo-600 text-white hover:bg-indigo-700">
-                Get started
-              </button>
-            </Link>
+          <span className={`font-semibold ${billing === "yearly" ? "text-indigo-600" : "text-gray-500"}`}>
+            Yearly
+          </span>
+
+          <span className="ml-2 bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full">
+            SAVE 20%
+          </span>
+        </div>
+
+        {/* Pricing Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+          {plans.map((plan) => {
+            const price = billing === "monthly" ? plan.monthly : plan.yearly;
+
+            return (
+              <div key={plan.name} className="relative bg-white/80 backdrop-blur rounded-3xl shadow-xl border border-gray-200 p-8 transform transition-all hover:-translate-y-3">
+                {plan.popular && (
+                  <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
+                    MOST POPULAR
+                  </span>
+                )}
+
+                <h3 className="text-2xl font-bold text-indigo-600 mb-2">{plan.name}</h3>
+
+                <div className="text-4xl font-extrabold text-gray-900 mb-2">
+                  ₹{price.toLocaleString()}
+                  <span className="text-base font-medium text-gray-600">/{billing === "monthly" ? "mo" : "yr"}</span>
+                </div>
+
+                {billing === "yearly" && <p className="text-green-600 text-sm mb-4">Billed yearly — Save 20%</p>}
+
+                <ul className="text-gray-700 space-y-2 mb-6 text-left max-w-xs mx-auto">
+                  {plan.features.map((f) => (
+                    <li key={f} className="flex items-center gap-2"><span className="text-indigo-600">✓</span>{f}</li>
+                  ))}
+                </ul>
+
+                <button
+                  onClick={() => handleGetStarted(plan.name)}
+                  className="w-full py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-indigo-600 to-blue-500 hover:opacity-90"
+                >
+                  Get Started
+                </button>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Compare table */}
+        <div className="mt-16 max-w-6xl mx-auto">
+          <h3 className="text-3xl font-bold text-center mb-6">Compare Plans</h3>
+          <div className="overflow-x-auto bg-white/80 backdrop-blur rounded-2xl shadow border border-gray-200">
+            <table className="min-w-full text-left text-gray-700">
+              <thead className="bg-indigo-600 text-white">
+                <tr>
+                  <th className="py-4 px-6 font-semibold">Features</th>
+                  <th className="py-4 px-6 font-semibold text-center">Pro</th>
+                  <th className="py-4 px-6 font-semibold text-center">Business</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  ["AI Video Ads", true, true],
+                  ["AI Caption Generator", true, true],
+                  ["Auto Scheduling", true, true],
+                  ["Multi-Platform Posting", true, true],
+                  ["Advanced Analytics", false, true],
+                  ["Team Members", "3 Users", "10 Users"],
+                  ["Priority Support", false, true],
+                  ["API & Automation (n8n)", false, true],
+                ].map(([feature, pro, business], i) => (
+                  <tr key={i} className="border-t border-gray-200">
+                    <td className="py-4 px-6 font-medium">{feature}</td>
+                    <td className="py-4 px-6 text-center">
+                      {pro === true ? <span className="text-green-600">✔</span> : pro === false ? <span className="text-red-500">✖</span> : pro}
+                    </td>
+                    <td className="py-4 px-6 text-center">
+                      {business === true ? <span className="text-green-600">✔</span> : business === false ? <span className="text-red-500">✖</span> : business}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
-        ))}
-      </div>
+        </div>
 
-     
+      </div>
     </section>
   );
 }
 
-export default Pricing;
+
+
+
+
+

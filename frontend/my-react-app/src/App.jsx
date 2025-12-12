@@ -6,7 +6,7 @@ import Features from "./pages/Features";
 import Pricing from "./pages/Pricing";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import Payment from "./pages/Payments";
+import Subscribe from "./pages/Subscribe";
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/payment/:plan" element={<Payment />} />
+        <Route path="/subscribe" element={<Subscribe />} />
       </Routes>
       <Footer />
     </Router>
