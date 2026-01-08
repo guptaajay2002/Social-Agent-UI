@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <footer className="bg-gradient-to-r from-indigo-500 to-blue-500 text-white py-6 fixed bottom-0 left-0 w-full shadow-md z-50">
+    <footer className="bg-gradient-to-r from-indigo-500 to-blue-500 text-white py-6 fixed bottom-0  left-0 w-full shadow-md z-50">
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-8">
         
         {/* Left Section - Brand */}

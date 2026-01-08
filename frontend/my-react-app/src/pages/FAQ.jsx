@@ -28,7 +28,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(null);
 
   return (
-    <section className="bg-gradient-to-r from-indigo-500 to-blue-500 text-white py-20 px-6 md:px-20">
+    <section className="bg-gradient-to-r from-indigo-500 to-blue-500 text-white py-20 px-6 md:px-20 mb-9">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-16">
         {/* Left Section */}
         <div className="md:w-1/2">
