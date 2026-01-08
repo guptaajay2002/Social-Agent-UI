@@ -7,7 +7,7 @@ function Navbar() {
       <div className="max-w-6xl mx-auto flex justify-between items-center p-4">
         <h1 className="text-2xl font-bold text-indigo-600 cursor-pointer">
           <ScrollLink to="hero" smooth duration={600} offset={-80}>
-            Social.AI
+            Social Agent AI
           </ScrollLink>
         </h1>
 
@@ -69,5 +69,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
-

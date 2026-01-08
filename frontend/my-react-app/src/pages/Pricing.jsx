@@ -10,16 +10,16 @@ export default function Pricing() {
   const plans = [
     {
       name: "Pro",
-      monthly: 1499,
-      yearly: Math.round(1499 * 12 * 0.8),
-      features: ["3 users", "AI captions", "Scheduling", "Email support"],
+      monthly: 5999,
+      yearly: Math.round(5999 * 12 * 0.9),
+      features: ["2 Accounts Handling", "AI Captions Generation", "Post Scheduling", "Email Support"],
       popular: true,
     },
     {
       name: "Business",
-      monthly: 4999,
-      yearly: Math.round(4999 * 12 * 0.8),
-      features: ["10 users", "All features", "Priority support"],
+      monthly: 9999,
+      yearly: Math.round(9999 * 12 * 0.9),
+      features: [ "All Features Of Pro", ,"Premium Ads Quality","5 Accounts Handling","Priority Support"],
       popular: false,
     },
   ];
@@ -76,7 +76,7 @@ export default function Pricing() {
           </span>
 
           <span className="ml-2 bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full">
-            SAVE 20%
+            SAVE 10%
           </span>
         </div>
 
@@ -100,7 +100,7 @@ export default function Pricing() {
                   <span className="text-base font-medium text-gray-600">/{billing === "monthly" ? "mo" : "yr"}</span>
                 </div>
 
-                {billing === "yearly" && <p className="text-green-600 text-sm mb-4">Billed yearly — Save 20%</p>}
+                {billing === "yearly" && <p className="text-green-600 text-sm mb-4">Billed yearly — Save 10%</p>}
 
                 <ul className="text-gray-700 space-y-2 mb-6 text-left max-w-xs mx-auto">
                   {plan.features.map((f) => (
@@ -138,7 +138,7 @@ export default function Pricing() {
                   ["Auto Scheduling", true, true],
                   ["Multi-Platform Posting", true, true],
                   ["Advanced Analytics", false, true],
-                  ["Team Members", "3 Users", "10 Users"],
+                  ["Account Handling", "2 Accounts", "5 Accounts"],
                   ["Priority Support", false, true],
                   ["API & Automation (n8n)", false, true],
                 ].map(([feature, pro, business], i) => (
@@ -161,9 +161,3 @@ export default function Pricing() {
     </section>
   );
 }
-
-
-
-
-
-

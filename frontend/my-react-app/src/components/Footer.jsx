@@ -5,7 +5,7 @@ function Footer() {
         
         {/* Left Section - Brand */}
         <h2 className="text-2xl font-extrabold tracking-wide mb-6 md:mb-0 hover:scale-105 transition-transform duration-300">
-          Social.AI
+          Social Agent AI
         </h2>
 
         {/* Center Section - Social Icons */}
@@ -13,7 +13,7 @@ function Footer() {
 
           {/* Instagram */}
           <a
-            href="https://instagram.com"
+            href=" "
             target="_blank"
             rel="noopener noreferrer"
             className="transition transform hover:scale-125 hover:text-pink-300 relative group"
@@ -26,7 +26,7 @@ function Footer() {
 
           {/* LinkedIn */}
           <a
-            href="https://linkedin.com"
+            href=" "
             target="_blank"
             rel="noopener noreferrer"
             className="transition transform hover:scale-125 hover:text-blue-300 relative group"
@@ -39,7 +39,7 @@ function Footer() {
 
           {/* Twitter / X */}
           <a
-            href="https://twitter.com"
+            href=" "
             target="_blank"
             rel="noopener noreferrer"
             className="transition transform hover:scale-125 hover:text-gray-200 relative group"
@@ -52,7 +52,7 @@ function Footer() {
 
           {/* YouTube */}
           <a
-            href="https://youtube.com"
+            href=" "
             target="_blank"
             rel="noopener noreferrer"
             className="transition transform hover:scale-125 hover:text-red-300 relative group"
@@ -67,7 +67,7 @@ function Footer() {
 
         {/* Right Section - Copyright */}
         <p className="mt-6 md:mt-0 text-md font-medium tracking-wide">
-          © {new Date().getFullYear()} Social.AI. All rights reserved.
+          © {new Date().getFullYear()} Social Agent AI. All rights reserved.
         </p>
 
       </div>

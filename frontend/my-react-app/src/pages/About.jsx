@@ -52,7 +52,7 @@ function About() {
 
           <p className="text-gray-700 text-lg leading-relaxed mt-5">
             From product photography to branded storytelling, our platform delivers 
-            automation at scale—helping entrepreneurs, creators, and brands grow faster
+            automation at scale - helping entrepreneurs, creators, and brands grow faster
             in today’s competitive digital economy.
           </p>
         </div>
@@ -77,32 +77,6 @@ function About() {
           ))}
         </div>
 
-        {/* ===================== TEAM SECTION ===================== */}
-        <h3 className="text-4xl font-bold mb-10 text-gray-900">
-          Meet Our Team
-        </h3>
-
-        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-10">
-          {[
-            { name: "Ajay Gupta", role: "Founder & Developer" },
-            { name: "AI Engineer", role: "GenAI Research Lead" },
-            { name: "Product Manager", role: "Growth & Strategy" },
-            { name: "UI/UX Designer", role: "Experience Architect" },
-          ].map((member, i) => (
-            <div
-              key={i}
-              className="bg-white shadow-xl rounded-2xl p-8 hover:scale-105 transition-all duration-300 text-center"
-            >
-              <div className="w-20 h-20 rounded-full bg-indigo-200 mx-auto mb-4 flex items-center justify-center text-indigo-700 font-bold text-xl">
-                {member.name.charAt(0)}
-              </div>
-              <h4 className="text-lg font-bold text-gray-900">
-                {member.name}
-              </h4>
-              <p className="text-gray-600">{member.role}</p>
-            </div>
-          ))}
-        </div>
 
       </div>
     </section>
