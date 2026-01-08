@@ -3,14 +3,14 @@ import { Plus, X } from "lucide-react"; // install: npm install lucide-react
 
 const faqs = [
   {
-    question: "1. What exactly does Social.AI do?",
+    question: "1. What exactly does Social Agent AI do?",
     answer:
-      "Social.AI works as your always-on marketing assistant without the big agency costs. We help businesses manage social media, schedule posts, and grow their audience automatically.",
+      "Social Agent AI works as your always-on marketing assistant without the big agency costs. We help businesses manage social media, schedule posts, and grow their audience automatically.",
   },
   {
-    question: "2. Do I need any technical or marketing experience to use Social.AI?",
+    question: "2. Do I need any technical or marketing experience to use Social Agent AI?",
     answer:
-      "No, Social.AI is built for everyone. Just sign up, connect your accounts, and let the platform handle everything from post scheduling to analytics.",
+      "No, Social Agent AI is built for everyone. Just sign up, connect your accounts, and let the platform handle everything from post scheduling to analytics.",
   },
   {
     question: "3. How quickly can I start seeing results?",

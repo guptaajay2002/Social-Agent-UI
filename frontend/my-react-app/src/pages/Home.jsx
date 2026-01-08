@@ -22,7 +22,7 @@ function Home() {
           </h1>
 
           <p className="text-lg md:text-xl mb-6">
-            Social.AI helps you generate content, schedule posts, and track
+            Social Agent AI helps you generate content, schedule posts, and track
             engagement across platforms.
           </p>
 
